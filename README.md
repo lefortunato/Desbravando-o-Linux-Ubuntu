@@ -277,7 +277,7 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
   </details>
 </div>
 
-## 🛠️ Simulando acesso remoto nas máquinas virtuais criadas.
+## 🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox.
 
 > Criamos 2 maquinas virtuais roando o Linux Ubuntu, uma no VirtualBox e uma na AWS. A partir de agora vamos simular acesso remoto de uma máquina Windows em ambas máquinas virtuais.
 
@@ -293,7 +293,7 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
   </details>
 </div>
 
-3. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Hst Name (or IP address)` o IP da máquina virtual, listado no passo anterior.  Observe a imagem abaixo.
+3. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual, listado no passo anterior.  Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -304,7 +304,7 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
   </details>
 </div>
 
-3. **Acesso remoto via Windows -** É possível que ocorra um erro de `Conexão recusada`, caso isso aconteça, será necessário instalarmos o SSH na imagem do Linux Ubuntu e executarmos uma série de comando no `CMD` do windows. Execute o `CMD` como administrador.
+3. **Acesso remoto via Windows -** É possível que ocorra um erro de `Conexão recusada`, caso isso aconteça, será necessário instalarmos o SSH na imagem do Linux Ubuntu e executarmos uma série de comando. 
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1 **Instalando o SSH na imagem do Linux** - no prompt de comando, digite o comando abaixo:
   ```bash
@@ -318,6 +318,80 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
       [Instalando o SSh]
     </summary>
     <img src="images/img21.png" alt="Instalando o SSh" width="600">
+  </details>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.2 **Verifique se o serviço está rodando -** Digite o comando abaixo:
+  ```bash
+sudo systemctl status ssh
+  ```
+Se aparecer `active (running)`, o serviço está pronto.
+
+Se aparecer `inactive` ou `dead`, execute os comandos abaixo.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.3 **Inicie e habilite o serviço -** Digite o comando abaixo:
+  ```bash
+sudo systemctl start ssh
+sudo systemctl enable ssh
+  ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.4 **Confirme a porta de escuta -** Para ter certeza absoluta que o Linux está ouvindo na porta 22, use:
+  ```bash
+ss -tlpn | grep :22
+  ```
+Deve aparecer uma linha indicando que o processo sshd está em LISTEN
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.5 **Force a execução do serviço -**  No terminal do seu Ubuntu, execute o comando para forçar o início do serviço:
+  ```bash
+sudo systemctl start ssh
+  ```
+Após executar o comando acima, valide se ele subiu com:
+  ```bash
+sudo systemctl status ssh
+  ```
+O que observar: O campo Active deve mudar de inactive `dead` para active `running` em verde.
+
+4. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual. Clique em `Accept`. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Acesso Remoto]
+    </summary>
+    <img src="images/img22.png" alt="Acesso Remoto" width="600">
+  </details>
+</div>
+
+5. **Acesso remoto via Windows -** Agora ele vai pedir o usuário e senha. A partir deste ponto, estaremos conectados remotamente na máquinha com o SO Linux. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Acesso Remoto]
+    </summary>
+    <img src="images/img23.png" alt="Acesso Remoto" width="600">
+  </details>
+</div>
+
+## 🛠️ Simulando acesso remoto do windows na máquina virtual da AWS.
+1. **Acesso remoto via Windows -** Neste instante, precisaremos executar o `PuttyGen`. Clique no botão `Load` e selecione o arquivo `.pem` com a chave que criamos no passo da criação da máquina virtual na AWS. Após carregar, clique no botão `Save private key`, neste momento ele criará um arquivo com a extensão  `.ppk`. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Convertendo arquivo com a chave de acesso]
+    </summary>
+    <img src="images/img24.png" alt="Convertendo arquivo com a chave de acesso" width="600">
+  </details>
+</div>
+
+2. **Acesso remoto via Windows -** Agora vamos atribuir esse arquivo `.ppk` no putty para realizar o acesso remoto. Na arvore, clique na opção `Connection / SSH / Auth`, procure pelo campo `Private key file for authentication`, e carregue o arquivo `.ppk` gerado no passo anterior.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Carregando a chave .PPK no Putty]
+    </summary>
+    <img src="images/img25.png" alt="Carregando a chave .PPK no Putty" width="600">
   </details>
 </div>
 
