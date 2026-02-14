@@ -73,11 +73,10 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
     <img src="images/img1.png" alt="Configuração da ISO" width="600">
   </details>
 </div>
-
- </br>
  
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.1. **Tamanho da Memória -** Neste item mantenha o tamanho de 1024 mb.  </br></br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.2. **Criar disco rígido virtual -** Neste item mantenha o tamanho do disco em 20 gb. Depois disso clique em `criar`.  </br></br>
+  
 5. **Configuração de rede -** Com a máquina virtual criada, vá em `configurações` e selecione o item `rede`. Faça as configurações conforme imagem abaixo:
 
 <div align="right">
@@ -86,6 +85,58 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
       [Configuração de rede]
     </summary>
     <img src="images/img3.png" alt="Configuração de rede" width="600">
+  </details>
+</div>
+
+6. **Subindo a máquina virtual -** Clique em `Iniciar` para subir a máquina e começarmos a instação / configuração do SO.
+7. **Configuração do Sistema Operacional Linux Ubuntu -** Siga os passos abaixo: </br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.1 **Configuração de Idioma -** Selecione o idioma Português. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configuração do Idioma]
+    </summary>
+    <img src="images/img4.png" alt="Configuração do Idioma" width="600">
+  </details>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.2 **Proximo passo -** Selecione a opção `Continue without updating`. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configuração do SO]
+    </summary>
+    <img src="images/img5.png" alt="Configuração do SO" width="600">
+  </details>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.3 **Configuração de Teclado -** Em `Layout`, selecione a opção `Portuguese (Brazil)`, depois selecione `Concluído` e aperte enter. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configuração do teclado]
+    </summary>
+    <img src="images/img6.png" alt="Configuração do teclado" width="600">
+  </details>
+</div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.4 **Definição de rede -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.5 **Definição de proxy -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.6 **Definição de Servidor Espelho -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.7 **Definição de Disco Virtual -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.7 **Definição de Partição -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 7.7 **Finalizando Instalação -** Selecione o item `Continue` e aperte enter. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Concluindo instalação]
+    </summary>
+    <img src="images/img7.png" alt="Concluindo instalação" width="600">
   </details>
 </div>
 
