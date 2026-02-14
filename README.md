@@ -15,8 +15,9 @@
 
 ## 📋 Sumário
 * [🎯 Objetivo deste tópico](#-Objetivo-deste-tópico)
-* [🛠️ Baixando o ISO e instalando no Oracle VirtualBox (Aplicativo de virtualização)](#%EF%B8%8F-tecnologias-e-ferramentas)
-* [⚙️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+* [⚙️ Detalhes da Instalação e Versões](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+* [🛠️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+  
 * [🚀 Enumeração de Serviços (Reconhecimento Ativo)](#-enumeração-de-serviços-reconhecimento-ativo)
 * [📋 Criação das Wordlists (Lista de Tentativas)](#-criação-das-wordlists-lista-de-tentativas)
 * [💥 1. Ataque de Força Bruta em Serviço FTP com Hydra](#-1-ataque-de-força-bruta-em-serviço-ftp-com-hydra)
