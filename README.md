@@ -35,3 +35,5 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 > ⚠️ **Disclaimer:** Este projeto foi realizado estritamente em um ambiente de laboratório isolado, utilizando máquinas virtuais propositalmente vulneráveis (Metasploitable 2 e DVWA), com o único propósito de aprendizado e auditoria de segurança.
 
 ## 🛠️ Baixando o ISO e instalando no Oracle VirtualBox (Aplicativo de virtualização).
+
+1. **Instalação do VirtualBox -** A instalação é bem simples, no meu caso, segui com as opções padrões até a finalização. Baixe o aplicativo a partir deste link (https://www.virtualbox.org/)
