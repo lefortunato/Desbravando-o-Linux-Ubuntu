@@ -14,8 +14,8 @@
 ---
 
 ## 📋 Sumário
-* [🎯 Descrição do Projeto](#-Objetivo-deste-tópico)
-* [🛠️ Tecnologias e Ferramentas](#%EF%B8%8F-tecnologias-e-ferramentas)
+* [🎯 Objetivo deste tópico](#-Objetivo-deste-tópico)
+* [🛠️ Baixando o ISO e instalando no Oracle VirtualBox (Aplicativo de virtualização)](#%EF%B8%8F-tecnologias-e-ferramentas)
 * [⚙️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
 * [🚀 Enumeração de Serviços (Reconhecimento Ativo)](#-enumeração-de-serviços-reconhecimento-ativo)
 * [📋 Criação das Wordlists (Lista de Tentativas)](#-criação-das-wordlists-lista-de-tentativas)
@@ -34,4 +34,4 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 
 > ⚠️ **Disclaimer:** Este projeto foi realizado estritamente em um ambiente de laboratório isolado, utilizando máquinas virtuais propositalmente vulneráveis (Metasploitable 2 e DVWA), com o único propósito de aprendizado e auditoria de segurança.
 
-## 🛠️ Tecnologias e Ferramentas
+## 🛠️ Baixando o ISO e instalando no Oracle VirtualBox (Aplicativo de virtualização).
