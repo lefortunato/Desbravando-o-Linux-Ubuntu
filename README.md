@@ -17,6 +17,7 @@
 * [🎯 Objetivo deste tópico](#-Objetivo-deste-tópico)
 * [⚙️ Detalhes da Instalação e Versões](#%EF%B8%8F-detalhes-da-instalação-e-versões)
 * [🛠️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+* [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-detalhes-da-instalação-e-versões)
   
 * [🚀 Enumeração de Serviços (Reconhecimento Ativo)](#-enumeração-de-serviços-reconhecimento-ativo)
 * [📋 Criação das Wordlists (Lista de Tentativas)](#-criação-das-wordlists-lista-de-tentativas)
@@ -152,6 +153,104 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
     <summary font-weight: bold;">
       [Configuração de usuário]
     </summary>
-    <img src="images/img7.png" alt="Configuração de usuário" width="600">
+    <img src="images/img8.png" alt="Configuração de usuário" width="600">
   </details>
 </div>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.1 **Definição de Token -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.2 **Definição de Token -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.3 **Instalação do OpenSSH -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 8.4 **Instalação de serviços -** Neste ponto não faremos nada, apenas selecione `Concluído` e aperte enter.  </br></br>
+
+8. **Concluíndo a Instalação -** A partir deste ponto a instalação iniciará e devemos aguardar a conclusão. Quando finalizar, selecione `Reboot Now` e aperte enter. Observe a imagem abaixo. 
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Conclusão da instalação]
+    </summary>
+    <img src="images/img9.png" alt="Conclusão da instalação" width="600">
+  </details>
+</div>
+
+9. **Subindo a máquina virtual -** Depois de subir a máquina virtual, digite o usuário e senha que foram criados no item `8.0`, e aperte enter. Observe a imagem abaixo. 
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Subindo MV]
+    </summary>
+    <img src="images/img10.png" alt="Subindo MV" width="600">
+  </details>
+</div>
+
+10. **Verificando SO ativo -** Após digitar o usuário e senha, verifique se realmente está no sistema operacional. Na linha de comando deve aparecer `nome-usuário@nomeservidor`. Observe a imagem abaixo. 
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Sistema Operacional ativo]
+    </summary>
+    <img src="images/img11.png" alt="Sistema Operacional ativo" width="600">
+  </details>
+</div>
+
+## 🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS
+
+> ⚠️ **Observação:** Para seguirmos com este passo, é necessário ter uma conta na AWS. Não abordarei este tópico e considerarei que vc já tenha uma conta para seguirmos com a criação da máquina virtual.
+
+1. **Serviço EC2 da AWS-** No serviço EC2 é onde criaremos nossa máquina virtual. Na barra de pesquisa, digite `EC2`, quando aparecer a opção, clique para acessar o ambiente.  Observe a imagem abaixo. 
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Pesquisando o EC2]
+    </summary>
+    <img src="images/img12.png" alt="Pesquisando o EC2" width="600">
+  </details>
+</div>
+
+2. **Serviço EC2 da AWS-** Clique em `Executar instância`.  Observe a imagem abaixo. 
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Acessando o EC2]
+    </summary>
+    <img src="images/img13.png" alt="Acessando o EC2" width="600">
+  </details>
+</div>
+
+3. **Serviço EC2 da AWS-** Digite o nome da máquina virtual no campo `Nome` e selecione o Sistema Operacional.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configurando a MV no EC2]
+    </summary>
+    <img src="images/img14.png" alt="Configurando a MV no EC2" width="600">
+  </details>
+</div>
+
+4. **Serviço EC2 da AWS-** No item `Par de chaves (Login)` clique em `Criar novo par de chaves`.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configurando a MV no EC2]
+    </summary>
+    <img src="images/img15.png" alt="Configurando a MV no EC2" width="600">
+  </details>
+</div>
+
+5. **Serviço EC2 da AWS-** No campo `Nome do par de cahves`, de um nome e clique em `Criar par de chaves`.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configurando par de chaves]
+    </summary>
+    <img src="images/img16.png" alt="Configurando par de chaves" width="600">
+  </details>
+</div>
+
