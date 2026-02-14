@@ -42,8 +42,8 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 | :---: | :---: | :---: |
 | VirtualBox	| https://download.virtualbox.org/virtualbox/7.2.2/VirtualBox-7.2.2-170484-Win.exe |	7.2.2
 | Linux Ubuntu	| https://ubuntu.com/download/server/thank-you?version=20.04.6&architecture=amd64&lts=true | 20.04.6 LTS
-| Putty	| https://sourceforge.net/projects/metasploitable/files/latest/download |	2.0.0
-| PuttyGen	| sudo apt install hydra (Se não estiver instalado)	hydra -V | 9.5
+| Putty	| https://the.earth.li/~sgtatham/putty/latest/w64/putty.exe |	64-bit x86
+| PuttyGen	| https://the.earth.li/~sgtatham/putty/latest/w64/puttygen.exe | 64-bit x86
 
 ## 🛠️  Configuração do Ambiente
 
@@ -251,6 +251,73 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
       [Configurando par de chaves]
     </summary>
     <img src="images/img16.png" alt="Configurando par de chaves" width="600">
+  </details>
+</div>
+
+6. **Serviço EC2 da AWS-** Após o clique em `Criar par de chaves`, será feito automaticamente um download do `nomedoarquivo.pem`. Este arquivo usaremo posteriormente para realizar acesso remoto.
+7. **Serviço EC2 da AWS-** Para finalizar, clique em `Executar Instância`. Ao final, teremos a criação finalizara, depois disso clique no botão `Visualizar todas as instâncias`. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Verificando instância criada]
+    </summary>
+    <img src="images/img17.png" alt="Verificando instância criada" width="600">
+  </details>
+</div>
+
+8. **Serviço EC2 da AWS-** Agora devemos ter a instância de uma máquina virtual rodando com o Linux Ubuntu. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Instância em execução]
+    </summary>
+    <img src="images/img18.png" alt="Instância em execução" width="600">
+  </details>
+</div>
+
+## 🛠️ Simulando acesso remoto nas máquinas virtuais criadas.
+
+> Criamos 2 maquinas virtuais roando o Linux Ubuntu, uma no VirtualBox e uma na AWS. A partir de agora vamos simular acesso remoto de uma máquina Windows em ambas máquinas virtuais.
+
+1. **Acesso remoto via Windows -** Suba a imagem do Linux Ubuntu no VirtualBox para simular um servidor remoto. Em seguida, usaremos o Windows para acessar essa máquina virtual como se estivéssemos nos conectando a um computador em outro local. </br>
+2. **Acesso remoto via Windows -** Com o SO ativo, na linha de comando digite `ip a`, para listar os dados da rede ao qual a imagem está conectada. Precisaremos da informação do IP para realizar o acesso remoto. Precisado do ip localizado no `inet`, abaixo do item `enp0s3`, Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Ip da rede da Máquina Virtual]
+    </summary>
+    <img src="images/img19.png" alt="Ip da rede da Máquina Virtual" width="600">
+  </details>
+</div>
+
+3. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Hst Name (or IP address)` o IP da máquina virtual, listado no passo anterior.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Executando o Putty]
+    </summary>
+    <img src="images/img20.png" alt="Executando o Putty" width="600">
+  </details>
+</div>
+
+3. **Acesso remoto via Windows -** É possível que ocorra um erro de `Conexão recusada`, caso isso aconteça, será necessário instalarmos o SSH na imagem do Linux Ubuntu e executarmos uma série de comando no `CMD` do windows. Execute o `CMD` como administrador.
+  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1 **Instalando o SSH na imagem do Linux** - no prompt de comando, digite o comando abaixo:
+  ```bash
+  sudo apt-get install openssh-server
+  ```
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.2 **Instalando o SSH na imagem do Linux** - Será solicitado a senha para seguir com a instalação. Após colocar a senha, ele pedirá a confirmação para seguir com a instalação. Confirme e tecle enter. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Instalando o SSh]
+    </summary>
+    <img src="images/img21.png" alt="Instalando o SSh" width="600">
   </details>
 </div>
 
