@@ -48,16 +48,44 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 
 1. **Instalação do VirtualBox -** A instalação é bem simples, no meu caso, segui com as opções padrões até a finalização.
 2. **Configurações iniciais para uso da virtualização -** Precisamos seguir os passos antes da instalação da ISO:
-   ***2.1 - Abra o CMD em modo admistrador - *** No CMD digite o seguinte comando `BCDEDIT` e clique em enter.
-   ***2.2 - Verifique o item hypervisorlauchtype - *** Verique se o item está como `off`, se não estiver, digite o seguinte comando para deixá-lo, `BCDEDIT /SET hypervisorlauchtype OFF`. O objetivo é desabilitá-lo para permitir a criação de máquina virtual.
-4. **Baixando o ISO do Linux Ubuntu -** Baixe o ISO para, posteriormente, fazendo a instalação no VirtualBox. 
-5. **Instalando o ISO no VirtualBox -** Com o VirtualBox aberto, clique no botão New(novo), escolha um nome para a imagem e selecione o arquivo ISO apontando para o diretório onde foi feito o download. Observe a imagem abaixo.
+   </br></br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. **Abra o CMD em modo admistrador -** No CMD digite o seguinte comando `BCDEDIT` e clique em enter. </br></br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. **Verifique o item hypervisorlauchtype -** Verique se o item está como `off`, se não estiver, digite o seguinte comando para deixá-lo, `BCDEDIT /SET hypervisorlauchtype OFF`. O objetivo é desabilitá-lo para permitir a criação de máquina virtual. Observe a imagem abaixo. </br></br>
 
 <div align="right">
   <details>
     <summary font-weight: bold;">
-      [Configuração Kali Linux]
+      [Preparação do ambiente]
     </summary>
-    <img src="images/Kali01.png" alt="Configuração de VM" width="600">
+    <img src="images/img2.png" alt="preparação do ambiente" width="600">
   </details>
 </div>
+
+   
+3. **Baixando o ISO do Linux Ubuntu -** Baixe o ISO para, posteriormente, fazendo a instalação no VirtualBox. (Link no item `Detalhes da Instalação e Versões`)
+4. **Instalando o ISO no VirtualBox -** Com o VirtualBox aberto, clique no botão New(novo), escolha um nome para a imagem e selecione o arquivo ISO apontando para o diretório onde foi feito o download. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configuração da ISO]
+    </summary>
+    <img src="images/img1.png" alt="Configuração da ISO" width="600">
+  </details>
+</div>
+
+ </br>
+ 
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.1. **Tamanho da Memória -** Neste item mantenha o tamanho de 1024 mb.  </br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.2. **Criar disco rígido virtual -** Neste item mantenha o tamanho do disco em 20 gb. Depois disso clique em `criar`.  </br></br>
+5. **Configuração de rede -** Com a máquina virtual criada, vá em `configurações` e selecione o item `rede`. Faça as configurações conforme imagem abaixo:
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Configuração de rede]
+    </summary>
+    <img src="images/img3.png" alt="Configuração de rede" width="600">
+  </details>
+</div>
+
