@@ -47,8 +47,11 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 ## 🛠️  Configuração do Ambiente
 
 1. **Instalação do VirtualBox -** A instalação é bem simples, no meu caso, segui com as opções padrões até a finalização.
-2. **Baixando o ISO do Linux Ubuntu -** Baixe o ISO para, posteriormente, fazendo a instalação no VirtualBox. 
-3. **Instalando o ISO no VirtualBox -** Com o VirtualBox aberto, clique no botão New(novo), escolha um nome para a imagem e selecione o arquivo ISO apontando para o diretório onde foi feito o download. Observe a imagem abaixo.
+2. **Configurações iniciais para uso da virtualização -** Precisamos seguir os passos antes da instalação da ISO:
+   ***2.1 - Abra o CMD em modo admistrador - *** No CMD digite o seguinte comando `BCDEDIT` e clique em enter.
+   ***2.2 - Verifique o item hypervisorlauchtype - *** Verique se o item está como `off`, se não estiver, digite o seguinte comando para deixá-lo, `BCDEDIT /SET hypervisorlauchtype OFF`. O objetivo é desabilitá-lo para permitir a criação de máquina virtual.
+4. **Baixando o ISO do Linux Ubuntu -** Baixe o ISO para, posteriormente, fazendo a instalação no VirtualBox. 
+5. **Instalando o ISO no VirtualBox -** Com o VirtualBox aberto, clique no botão New(novo), escolha um nome para a imagem e selecione o arquivo ISO apontando para o diretório onde foi feito o download. Observe a imagem abaixo.
 
 <div align="right">
   <details>
