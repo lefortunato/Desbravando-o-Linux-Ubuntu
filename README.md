@@ -281,8 +281,8 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
 
 > Criamos 2 maquinas virtuais roando o Linux Ubuntu, uma no VirtualBox e uma na AWS. A partir de agora vamos simular acesso remoto de uma máquina Windows em ambas máquinas virtuais.
 
-1. **Acesso remoto via Windows -** Suba a imagem do Linux Ubuntu no VirtualBox para simular um servidor remoto. Em seguida, usaremos o Windows para acessar essa máquina virtual como se estivéssemos nos conectando a um computador em outro local. </br>
-2. **Acesso remoto via Windows -** Com o SO ativo, na linha de comando digite `ip a`, para listar os dados da rede ao qual a imagem está conectada. Precisaremos da informação do IP para realizar o acesso remoto. Precisado do ip localizado no `inet`, abaixo do item `enp0s3`, Observe a imagem abaixo.
+1. **Passo 1 -** Suba a imagem do Linux Ubuntu no VirtualBox para simular um servidor remoto. Em seguida, usaremos o Windows para acessar essa máquina virtual como se estivéssemos nos conectando a um computador em outro local. </br>
+2. **Passo 2 -** Com o SO ativo, na linha de comando digite `ip a`, para listar os dados da rede ao qual a imagem está conectada. Precisaremos da informação do IP para realizar o acesso remoto. Precisado do ip localizado no `inet`, abaixo do item `enp0s3`, Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -293,7 +293,7 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
   </details>
 </div>
 
-3. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual, listado no passo anterior.  Observe a imagem abaixo.
+3. **Passo 3 -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual, listado no passo anterior.  Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -304,7 +304,7 @@ Abordarei funcinalidades básicas para utilizar o SO Linux Ubuntu, entre instala
   </details>
 </div>
 
-3. **Acesso remoto via Windows -** É possível que ocorra um erro de `Conexão recusada`, caso isso aconteça, será necessário instalarmos o SSH na imagem do Linux Ubuntu e executarmos uma série de comando. 
+4. **Passo 4 -** É possível que ocorra um erro de `Conexão recusada`, caso isso aconteça, será necessário instalarmos o SSH na imagem do Linux Ubuntu e executarmos uma série de comando. 
   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1 **Instalando o SSH na imagem do Linux** - no prompt de comando, digite o comando abaixo:
   ```bash
@@ -350,7 +350,7 @@ sudo systemctl status ssh
   ```
 O que observar: O campo Active deve mudar de inactive `dead` para active `running` em verde.
 
-4. **Acesso remoto via Windows -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual. Clique em `Accept`. Observe a imagem abaixo.
+5. **Passo 5 -** Execute o putty.exe (Link no item `Detalhes da Instalação e Versões`), digite no campo `Host Name (or IP address)` o IP da máquina virtual. Clique em `Accept`. Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -361,7 +361,7 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
   </details>
 </div>
 
-5. **Acesso remoto via Windows -** Agora ele vai pedir o usuário e senha. A partir deste ponto, estaremos conectados remotamente na máquinha com o SO Linux. Observe a imagem abaixo.
+6. **Passo 6 -** Agora ele vai pedir o usuário e senha. A partir deste ponto, estaremos conectados remotamente na máquinha com o SO Linux. Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -373,7 +373,8 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
 </div>
 
 ## 🛠️ Simulando acesso remoto do windows na máquina virtual da AWS.
-1. **Acesso remoto via Windows -** Neste instante, precisaremos executar o `PuttyGen`. Clique no botão `Load` e selecione o arquivo `.pem` com a chave que criamos no passo da criação da máquina virtual na AWS. Após carregar, clique no botão `Save private key`, neste momento ele criará um arquivo com a extensão  `.ppk`. Observe a imagem abaixo.
+
+1. **Passo 1 -** Neste instante, precisaremos executar o `PuttyGen`. Clique no botão `Load` e selecione o arquivo `.pem` com a chave que criamos no passo da criação da máquina virtual na AWS. Após carregar, clique no botão `Save private key`, neste momento ele criará um arquivo com a extensão  `.ppk`. Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -384,7 +385,7 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
   </details>
 </div>
 
-2. **Acesso remoto via Windows -** Agora vamos atribuir esse arquivo `.ppk` no putty para realizar o acesso remoto. Na arvore, clique na opção `Connection / SSH / Auth`, procure pelo campo `Private key file for authentication`, e carregue o arquivo `.ppk` gerado no passo anterior.  Observe a imagem abaixo.
+2. **Passo 2 -** Agora vamos atribuir esse arquivo `.ppk` no putty para realizar o acesso remoto. Na arvore, clique na opção `Connection / SSH / Auth`, procure pelo campo `Private key file for authentication`, e carregue o arquivo `.ppk` gerado no passo anterior.  Observe a imagem abaixo.
 
 <div align="right">
   <details>
@@ -395,3 +396,46 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
   </details>
 </div>
 
+3. **Passo 3 -** Agora vamos pegar o IP da máquina virtual na AWS.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [IP da MV AWS]
+    </summary>
+    <img src="images/img26.png" alt="IP da MV AWS" width="600">
+  </details>
+</div>
+
+4. **Passo 4 -** Inclua o endereço IP no putty e clique em `Open`.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Conexão via putty]
+    </summary>
+    <img src="images/img27.png" alt="Conexão via putty" width="600">
+  </details>
+</div>
+
+5. **Passo 5 -** Agora finalizaremos a conexão. Neste momento ele irá pedir o usuário, que na AWS ele cria por padrão o usuário `Open`. Como a chave foi importada, não há necessidade de digitar senha.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Conexão realizada]
+    </summary>
+    <img src="images/img28.png" alt="Conexão realizada" width="600">
+  </details>
+</div>
+
+6. **Passo 6 -** Neste ponto mostra a interface do ubuntu e podemos digitar comandos unix para teste.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Interface Ubuntu]
+    </summary>
+    <img src="images/img29.png" alt="Interface Ubuntu" width="600">
+  </details>
+</div>
