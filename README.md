@@ -15,7 +15,7 @@
 
 ## 📋 Sumário
 * [🎯 Objetivo deste tópico](#-objetivo-deste-tópico)
-* [⚙️ Detalhes da Instalação e Versões](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+* [⚙️ Detalhes da Instalação e Versões](#-objetivo-deste-t%C3%B3pico)
 * [🛠️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
 * [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-detalhes-da-instalação-e-versões)
 * [🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox](#%EF%B8%8F-simulando-acesso-remoto-do windows-na-máquina-virtual-do-virtualbox)
