@@ -19,7 +19,9 @@
 * [🛠️ Configuração do Ambiente](#%EF%B8%8F--configura%C3%A7%C3%A3o-do-ambiente)
 * [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-criando-uma-m%C3%A1quina-virtual-com-linux-ubuntu-na-aws) 
 * [🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-do-virtualbox)
-* [🛠️ Simulando acesso remoto do windows na máquina virtual da AWS](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws) 
+* [🛠️ Simulando acesso remoto do windows na máquina virtual da AWS](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
+* [🛠️ Trabalhando com arquivos](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws) 
+  
 * [🔗 Como Contribuir / Contato](#-como-contribuir--contato)
 
 ---
@@ -433,6 +435,81 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
     <img src="images/img29.png" alt="Interface Ubuntu" width="600">
   </details>
 </div>
+
+## 🛠️ Trabalhando com arquivos.
+> Neste tópico abordarei a utilização de comandos unix. Todos os comandos serão realizados na interface de acesso remoto do putty. Para isso, carrege a imagem no VirtualBox, pegue o IP e acesse remotamente via Putty.
+
+## 🐧 Comandos Essenciais do Terminal Linux
+
+| Comando | Descrição | Exemplo
+| :---: | :---: | :---: |
+| ls	  | Lista arquivos e diretórios  	            | ls -la
+| cd	  | Navega entre pastas	                      | cd documentos/projetos
+| pwd	  | Exibe o caminho do diretório atual	      | pwd
+| mkdir	| Cria um novo diretório (pasta)	          | mkdir nova_pasta
+| touch	| Cria um arquivo vazio	                    | touch index.html
+| rm	  | Remove arquivos ou diretórios	            | rm -rf pasta_antiga
+| cp	  | Copia arquivos ou diretórios	            | cp arquivo.txt copia.txt
+| mv	  | Move ou renomeia arquivos/pastas	        | mv antigo.txt novo.txt
+| cat	  | Exibe o conteúdo de um arquivo	          | cat script.py
+| grep	| Filtra textos dentro de arquivos	        | grep "erro" log.txt
+| chmod	| Altera permissões de acesso	              | chmod +x script.sh
+| sudo	| Executa comandos com privilégios de admin | sudo apt update
+
+## 🐧 Comandos Linux: Variações e Atalhos Úteis
+
+| Comando | O que faz (Variação) | Exemplo Prático
+| :---: | :---: | :---: |
+| cd         | olta para a pasta pessoal (Home)                      | cd ~
+| cd         | olta para o diretório raiz do sistema                 | cd /
+| cd         | olta para o diretório anterior (atalho)               | cd -
+| ls -R      | ista arquivos recursivamente (pastas e subpastas)     | ls -R
+| ls -lh     | Lista tamanhos de arquivos de forma legível (MB, GB)  | ls -lh
+| mkdir -p   | Cria uma estrutura de pastas aninhadas de uma vez     | mkdir -p src/assets/images
+| rm -rf     | Remove uma pasta e tudo que tem dentro (Cuidado!)     | rm -rf node_modules/
+| cp -r      | Copia uma pasta inteira e seu conteúdo                | cp -r pasta_origem/ destino/
+| tail -f    | Monitora um arquivo de log em tempo real              | tail -f logs/access.log
+| grep -i    | Busca texto ignorando letras maiúsculas/minúsculas    | grep -i "erro" log.txt
+| find       | Procura arquivos por nome em qualquer lugar           | find . -name "*.js"
+| df -h      | Mostra o espaço livre em disco de forma legível       | df -h
+| top / htop | Mostra processos e consumo de RAM/CPU no momento      | htop
+
+## 🚀 Atalhos de Produtividade (Bônus)
+Além dos comandos, vale mencionar estes atalhos de teclado que todo mundo usa:
+| Atalho | O que faz (Variação) |
+| :---: | :---: | 
+| Tab | Autocompleta o nome de arquivos e pastas (O melhor amigo do dev) 
+| Ctrl + C | Interrompe um comando que está sendo executado
+| Ctrl + L | Limpa a tela do terminal (equivalente ao comando clear)
+| history | Mostra todos os últimos comandos que você digitou
+
+## 🔐 Gerenciamento de Permissões (chmod)
+
+As permissões são divididas em Dono, Grupo e Outros. Cada ação tem um valor:
+4 (Leitura - r)
+2 (Escrita - w)
+1 (Execução - x)
+
+| Comando | O que faz | Exemplo Prático
+| :---: | :---: | :---: |
+| chmod 777	| Permissão total para todos (Leitura/Escrita/Execução)	  | chmod 777 script.sh
+| chmod 755	| Dono pode tudo; outros apenas leem e executam	          | chmod 755 public_html/
+| chmod 644	| Dono lê/escreve; outros apenas leem (Padrão arquivos)	  | chmod 644 config.txt
+| chmod +x	| Torna um arquivo executável (atalho rápido)	            | chmod +x deploy.sh
+| chown	    | Altera o dono do arquivo ou pasta	                      | sudo chown usuario:usuario index.html
+
+> ⚠️ **Disclaimer:** Tenha muito cuidado ao usar rm -rf ou chmod 777 em diretórios raiz (/), pois isso pode comprometer a estabilidade do seu sistema.
+
+## ⚡ Dicas de Ouro (Shortcuts & Tricks)
+
+| Comando	| Descrição da "Mágica" | Por que usar?
+| :---: | :---: | :---: |
+| !!	      | Executa o último comando digitado	                   | Esqueceu o sudo? Digite sudo !!
+| ctrl + r	| Pesquisa no histórico de comandos	                   | Para achar aquele comando complexo de ontem
+| grep -r	  | Busca uma palavra em TODOS os arquivos da pasta	     | grep -r "API_KEY"
+| alias	    | Cria um apelido para um comando longo	               | alias gs='git status'
+| watch	    | Executa um comando repetidamente a cada X segundos   | watch -n 1 date
+| du -sh *	| Mostra o tamanho de cada pasta no diretório atual	   | Ótimo para limpar disco cheio
 
 ## 🔗 **Como Contribuir / Contato**</br></br>
 Este projeto foi desenvolvido como parte de um desafio prático de segurança cibernética. Sinta-se à vontade para explorá-lo, cloná-lo e adaptá-lo!
