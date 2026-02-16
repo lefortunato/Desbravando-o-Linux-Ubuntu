@@ -590,7 +590,42 @@ No Unix/Linux, o diretório /home é o local centralizado onde o sistema armazen
 
 2. **Editando informações do usuários**
 
+O usermod é a ferramenta "canivete suíço" para essas alterações. </br>
+Aqui está a tabela focada em edição, seguida pela explicação detalhada dos comandos.
 
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| usermod -l | Altera o nome de login (login name) do usuário.	  | sudo usermod -l novo_nome guest
+| usermod -c | Altera o comentário/nome real do usuário.	      | sudo usermod -c "Novo Nome" guest
+| usermod -s | Altera o shell padrão do usuário.	              | sudo usermod -s /bin/sh guest
+| usermod -e | Define ou altera a data de expiração da conta.	  | sudo usermod -e 2026-12-31 guest
+| usermod -L | Bloqueia (Lock) a conta do usuário.	              | sudo usermod -L guest
+| usermod -U | Desbloqueia (Unlock) a conta do usuário.	          | sudo usermod -U guest
+| chage -M	 | Define o número máximo de dias que uma senha vale. | sudo chage -M 90 guest
+
+
+**Explicação dos Comandos:** </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. **O que é o parâmetro -e?** </br>
+O -e (de expire) define uma data de validade para a conta. No exemplo useradd guest ... -e 25/03/2026, a conta do usuário "guest" será desativada automaticamente após essa data. É muito útil para funcionários temporários ou estagiários.
+
+> Nota técnica: O formato da data depende da sua distribuição, mas o padrão Unix mais comum é AAAA-MM-DD.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. **usermod guest -s /bin/bash** </br>
+Este comando altera o shell padrão do usuário "guest" para o Bash. Se o usuário estava usando um shell mais simples (como o sh), agora ele terá acesso aos recursos avançados do Bash ao abrir o terminal.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3. **passwd guest -e** </br>
+Aqui o -e significa expire aplicado à senha. Este comando força o usuário "guest" a alterar a senha obrigatoriamente no próximo login. É uma excelente prática de segurança após criar uma senha inicial padrão para alguém.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4. **cat /etc/passwd** </br>
+Este comando exibe o conteúdo do arquivo /etc/passwd. Esse arquivo é o "banco de dados" de texto do sistema onde ficam armazenadas as informações de todos os usuários (nome, UID, diretório home, shell, etc.). </br>
+
+Cada linha representa um usuário, e esta é a melhor forma de verificar se o seu comando useradd funcionou corretamente. </br></br>
+
+Exemplo Prático de Verificação:
+Após rodar seus comandos, você pode filtrar o arquivo passwd para ver apenas o "guest":
+  ```bash
+grep "guest" /etc/passwd
+  ```
 
 
 ## 🔗 **Como Contribuir / Contato**</br></br>
