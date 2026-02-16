@@ -14,18 +14,22 @@
 ---
 
 ## 📋 Sumário
-* [🎯 Objetivo deste tópico](#-Objetivo-deste-tópico)
-* [⚙️ Detalhes da Instalação e Versões](#%EF%B8%8F-detalhes-da-instalação-e-versões)
-* [🛠️ Configuração do Ambiente](#%EF%B8%8F-detalhes-da-instalação-e-versões)
-* [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-detalhes-da-instalação-e-versões)
+* [🎯 Objetivo deste tópico](#-objetivo-deste-tópico)
+* [⚙️ Detalhes da Instalação e Versões](#-objetivo-deste-t%C3%B3pico)
+* [🛠️ Configuração do Ambiente](#%EF%B8%8F--configura%C3%A7%C3%A3o-do-ambiente)
+* [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-criando-uma-m%C3%A1quina-virtual-com-linux-ubuntu-na-aws) 
+* [🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-do-virtualbox)
+* [🛠️ Simulando acesso remoto do windows na máquina virtual da AWS](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
+* [🛠️ Trabalhando com arquivos.](#%EF%B8%8F-trabalhando-com-arquivos)
+* [🐧 Comandos Essenciais do Terminal Linux](#-comandos-essenciais-do-terminal-linux)
+* [🐧 Comandos Linux: Variações e Atalhos Úteis](#-comandos-linux-varia%C3%A7%C3%B5es-e-atalhos-%C3%BAteis)
+* [🚀 Atalhos de Produtividade (Bônus)](#-atalhos-de-produtividade-b%C3%B4nus)
+* [🔐 Gerenciamento de Permissões (chmod)](#-gerenciamento-de-permiss%C3%B5es-chmod)
+* [⚡ Dicas de Ouro (Shortcuts & Tricks)](#-dicas-de-ouro-shortcuts--tricks)
+* [🔐 Liberando acesso remoto do usuário root](#-liberando-acesso-remoto-do-usu%C3%A1rio-root)
+* [👤 Trabalhando com Usuários](#-trabalhando-com-usu%C3%A1rios)
+* [🔐 Criando grupos e atribuindo usuários a eles.](#-criando-grupos-e-atribuindo-usu%C3%A1rios-a-eles)
   
-* [🚀 Enumeração de Serviços (Reconhecimento Ativo)](#-enumeração-de-serviços-reconhecimento-ativo)
-* [📋 Criação das Wordlists (Lista de Tentativas)](#-criação-das-wordlists-lista-de-tentativas)
-* [💥 1. Ataque de Força Bruta em Serviço FTP com Hydra](#-1-ataque-de-força-bruta-em-serviço-ftp-com-hydra)
-* [💥 2. Ataque de Força Bruta em Serviço FTP com Medusa](#-2-ataque-de-força-bruta-em-serviço-ftp-com-medusa)
-* [💥 3. Ataque de Força Bruta em Formulário Web (DVWA)](#-3-ataque-de-força-bruta-em-formulário-web-dvwa)
-* [💥 4. Ataque de Força Bruta em Serviço SMB com Password Spraying e Enumeração (Hydra e Medusa)](#-4-ataque-de-força-bruta-em-serviço-smb-com-password-spraying-e-enumeração-hydra-e-medusa)
-* [🛡️ Medidas de Mitigação e Recomendações de Segurança](#%EF%B8%8F-medidas-de-mitigação-e-recomendações-de-segurança-)
 * [🔗 Como Contribuir / Contato](#-como-contribuir--contato)
 
 ---
@@ -439,3 +443,400 @@ O que observar: O campo Active deve mudar de inactive `dead` para active `runnin
     <img src="images/img29.png" alt="Interface Ubuntu" width="600">
   </details>
 </div>
+
+## 🛠️ Trabalhando com arquivos.
+> Neste tópico abordarei a utilização de comandos unix. Todos os comandos serão realizados na interface de acesso remoto do putty. Para isso, carrege a imagem no VirtualBox, pegue o IP e acesse remotamente via Putty.
+
+## 🐧 Comandos Essenciais do Terminal Linux
+
+| Comando | Descrição | Exemplo
+| :---: | :---: | :---: |
+| ls	  | Lista arquivos e diretórios  	            | ls -la
+| cd	  | Navega entre pastas	                      | cd documentos/projetos
+| pwd	  | Exibe o caminho do diretório atual	      | pwd
+| mkdir	| Cria um novo diretório (pasta)	          | mkdir nova_pasta
+| touch	| Cria um arquivo vazio	                    | touch index.html
+| rm	  | Remove arquivos ou diretórios	            | rm -rf pasta_antiga
+| cp	  | Copia arquivos ou diretórios	            | cp arquivo.txt copia.txt
+| mv	  | Move ou renomeia arquivos/pastas	        | mv antigo.txt novo.txt
+| cat	  | Exibe o conteúdo de um arquivo	          | cat script.py
+| grep	| Filtra textos dentro de arquivos	        | grep "erro" log.txt
+| chmod	| Altera permissões de acesso	              | chmod +x script.sh
+| sudo	| Executa comandos com privilégios de admin | sudo apt update
+
+## 🐧 Comandos Linux: Variações e Atalhos Úteis
+
+| Comando | O que faz (Variação) | Exemplo Prático
+| :---: | :---: | :---: |
+| cd         | olta para a pasta pessoal (Home)                      | cd ~
+| cd         | olta para o diretório raiz do sistema                 | cd /
+| cd         | olta para o diretório anterior (atalho)               | cd -
+| ls -R      | ista arquivos recursivamente (pastas e subpastas)     | ls -R
+| ls -lh     | Lista tamanhos de arquivos de forma legível (MB, GB)  | ls -lh
+| mkdir -p   | Cria uma estrutura de pastas aninhadas de uma vez     | mkdir -p src/assets/images
+| rm -rf     | Remove uma pasta e tudo que tem dentro (Cuidado!)     | rm -rf node_modules/
+| cp -r      | Copia uma pasta inteira e seu conteúdo                | cp -r pasta_origem/ destino/
+| tail -f    | Monitora um arquivo de log em tempo real              | tail -f logs/access.log
+| grep -i    | Busca texto ignorando letras maiúsculas/minúsculas    | grep -i "erro" log.txt
+| find       | Procura arquivos por nome em qualquer lugar           | find . -name "*.js"
+| df -h      | Mostra o espaço livre em disco de forma legível       | df -h
+| top / htop | Mostra processos e consumo de RAM/CPU no momento      | htop
+
+## 🚀 Atalhos de Produtividade (Bônus)
+Além dos comandos, vale mencionar estes atalhos de teclado que todo mundo usa:
+| Atalho | O que faz (Variação) |
+| :---: | :---: | 
+| Tab | Autocompleta o nome de arquivos e pastas (O melhor amigo do dev) 
+| Ctrl + C | Interrompe um comando que está sendo executado
+| Ctrl + L | Limpa a tela do terminal (equivalente ao comando clear)
+| history | Mostra todos os últimos comandos que você digitou
+
+## 🔐 Gerenciamento de Permissões (chmod)
+
+As permissões são divididas em Dono, Grupo e Outros. Cada ação tem um valor:
+4 (Leitura - r)
+2 (Escrita - w)
+1 (Execução - x)
+
+| Comando | O que faz | Exemplo Prático
+| :---: | :---: | :---: |
+| chmod 777	| Permissão total para todos (Leitura/Escrita/Execução)	  | chmod 777 script.sh
+| chmod 755	| Dono pode tudo; outros apenas leem e executam	          | chmod 755 public_html/
+| chmod 644	| Dono lê/escreve; outros apenas leem (Padrão arquivos)	  | chmod 644 config.txt
+| chmod +x	| Torna um arquivo executável (atalho rápido)	            | chmod +x deploy.sh
+| chown	    | Altera o dono do arquivo ou pasta	                      | sudo chown usuario:usuario index.html
+
+> ⚠️ **Disclaimer:** Tenha muito cuidado ao usar rm -rf ou chmod 777 em diretórios raiz (/), pois isso pode comprometer a estabilidade do seu sistema.
+
+## ⚡ Dicas de Ouro (Shortcuts & Tricks)
+
+| Comando	| Descrição da "Mágica" | Por que usar?
+| :---: | :---: | :---: |
+| !!	      | Executa o último comando digitado	                   | Esqueceu o sudo? Digite sudo !!
+| ctrl + r	| Pesquisa no histórico de comandos	                   | Para achar aquele comando complexo de ontem
+| grep -r	  | Busca uma palavra em TODOS os arquivos da pasta	     | grep -r "API_KEY"
+| alias	    | Cria um apelido para um comando longo	               | alias gs='git status'
+| watch	    | Executa um comando repetidamente a cada X segundos   | watch -n 1 date
+| du -sh *	| Mostra o tamanho de cada pasta no diretório atual	   | Ótimo para limpar disco cheio
+
+## 🔐 Liberando acesso remoto do usuário root
+> Agora vou realizar o procedimento para permitir que o usuário `ROOT` possa acessar remotamente a imagem do SO.
+
+1) No prompt de comando, vamos acessar o arquivo onde ficam as configurações de usuário e é lá que precisamos habilitar o usuáro ROOT para fazer acesso remoto. Digite o comando:
+  ```bash
+sudo nano /etc/ssh/sshd_config
+  ```
+ Neste caso, usaremos o editor chamado `NANO`, que já vem instalado no Ubuntu. O comando `cat`, abre um arquivo texto e permite a visualização de seu conteúdo, porém não permite a edição. </br>
+ E para realizarmos a edição no arquivo, precisamos digidar o `sudo` antes, caso contrário o arquivo não permitirá ser editado.
+
+2) Localize a linha com este trecho `#PermitRootLogin prohibit-password`.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Liberando acesso remoto do usuário Root]
+    </summary>
+    <img src="images/img30.png" alt="Liberando acesso remoto do usuário Root" width="600">
+  </details>
+</div>
+
+3) Altera o conteúdo da linha para `PermitRootLogin yes`. Agora salve com o comando `ctrl + o (Write out)`. Confirme o nome do arquivo com `Enter` e `ctrl + x` para sair do arquivo. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Liberando acesso remoto do usuário Root]
+    </summary>
+    <img src="images/img31.png" alt="Liberando acesso remoto do usuário Root" width="600">
+  </details>
+</div>
+
+4) Agora precisaremos reiniciar o serviço `ssh`, para que as alterações replitam. Digite o comando abaixo:
+  ```bash
+sudo systemctl restart sshd
+  ```
+5) Abra uma nova sessão do putty e agora digite o usuário `root` e a senha. A partir de agora, estaremos com o usuário `root` fazendo acesso remoto. 
+
+## 👤 Trabalhando com Usuários
+> Agora apresentar comandos para manipular usuários.
+
+1. **Criando e excluindo usuários**
+
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| useradd        | Cria um novo usuário no sistema.                                 | sudo useradd -m novo_usuario |
+| passwd         | Altera a senha de um usuário.                                    | sudo passwd novo_usuario |
+| usermod        | Modifica as propriedades de um usuário.                          | sudo usermod -aG sudo usuario |
+| userdel        | Remove um usuário do sistema.                                    | sudo userdel -r usuario |
+| id             | Exibe UID, GID e grupos do usuário.                              | id usuario |
+| whoami         | Mostra o nome do usuário logado.                                 | whoami |
+| /home          | Diretório raiz onde ficam as pastas pessoais de cada usuário.    | ls /home |
+| userdel	       |  Remove um usuário do sistema.	                                  | sudo userdel joao
+| userdel --help | Exibe o menu de ajuda do comando userdel.	                      | userdel --help
+| userdel -r	   | Remove o usuário e deleta seu diretório home e arquivos.	        | sudo userdel -r joao
+| userdel -rf	   | Remove o usuário e diretório de forma forçada (mesmo se logado). |	sudo userdel -rf joao
+| useradd --help | Exibe o menu de ajuda do comando useradd.	                      | useradd --help
+| su	           | Alterna para outro usuário (Switch User).	                      | su joao
+
+
+**Exemplo prático:** </br></br>
+O comando completo useradd `joao -m -c "João da Silva" -s /bin/bash` faz o seguinte: </br>
+
+`useradd joao`: Cria o usuário com o nome de login "joao". </br>
+`-m`: Cria automaticamente o diretório pessoal (home) do usuário em /home/joao. </br>
+`-c "João da Silva"`: Adiciona um comentário ao cadastro, geralmente usado para o nome completo do usuário. </br>
+`-s /bin/bash`: Define qual interpretador de comandos (shell) o usuário usará ao logar, neste caso, o Bash. </br>
+
+Os comandos seguintes: </br>
+
+`passwd joao`: Define uma senha para a conta recém-criada (o sistema pedirá para digitar e confirmar a senha).</br>
+`su joao`: Abre uma sessão no terminal como o usuário "joao" (solicitará a senha dele).</br></br>
+
+> Nota sobre a pasta /home:
+No Unix/Linux, o diretório /home é o local centralizado onde o sistema armazena os dados, configurações e documentos de cada usuário comum (ex: /home/joao, /home/maria). É o espaço privado de cada conta.
+
+
+2. **Editando informações do usuários**
+
+O usermod é a ferramenta "canivete suíço" para essas alterações. </br>
+Aqui está a tabela focada em edição, seguida pela explicação detalhada dos comandos.
+
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| usermod -l | Altera o nome de login (login name) do usuário.	  | sudo usermod -l novo_nome guest
+| usermod -c | Altera o comentário/nome real do usuário.	      | sudo usermod -c "Novo Nome" guest
+| usermod -s | Altera o shell padrão do usuário.	              | sudo usermod -s /bin/sh guest
+| usermod -e | Define ou altera a data de expiração da conta.	  | sudo usermod -e 2026-12-31 guest
+| usermod -L | Bloqueia (Lock) a conta do usuário.	              | sudo usermod -L guest
+| usermod -U | Desbloqueia (Unlock) a conta do usuário.	          | sudo usermod -U guest
+| chage -M	 | Define o número máximo de dias que uma senha vale. | sudo chage -M 90 guest
+
+
+**Explicação dos Comandos:** </br></br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.1. **O que é o parâmetro -e?** </br>
+O -e (de expire) define uma data de validade para a conta. No exemplo useradd guest ... -e 25/03/2026, a conta do usuário "guest" será desativada automaticamente após essa data. É muito útil para funcionários temporários ou estagiários.
+
+> Nota técnica: O formato da data depende da sua distribuição, mas o padrão Unix mais comum é AAAA-MM-DD.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.2. **usermod guest -s /bin/bash** </br>
+Este comando altera o shell padrão do usuário "guest" para o Bash. Se o usuário estava usando um shell mais simples (como o sh), agora ele terá acesso aos recursos avançados do Bash ao abrir o terminal.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.3. **passwd guest -e** </br>
+Aqui o -e significa expire aplicado à senha. Este comando força o usuário "guest" a alterar a senha obrigatoriamente no próximo login. É uma excelente prática de segurança após criar uma senha inicial padrão para alguém.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2.4. **cat /etc/passwd** </br>
+Este comando exibe o conteúdo do arquivo /etc/passwd. Esse arquivo é o "banco de dados" de texto do sistema onde ficam armazenadas as informações de todos os usuários (nome, UID, diretório home, shell, etc.). </br>
+
+Cada linha representa um usuário, e esta é a melhor forma de verificar se o seu comando useradd funcionou corretamente. </br></br>
+
+Exemplo Prático de Verificação:
+Após rodar seus comandos, você pode filtrar o arquivo passwd para ver apenas o "guest":
+  ```bash
+grep "guest" /etc/passwd
+  ```
+</br></br>
+
+3. **Shell Script - Criando usuários em lote**
+> Neste tópico vamos abordar o comando de criação de usuário que é um pouco mais avançado, pois ele já automatiza a definição da senha no momento da criação, o que é muito comum em automação e scripts. </br>
+> Também vamos criar um script para criar usuários em lote.
+
+**Comandos de Automação e Manipulação de Arquivos**
+
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| $(openssl passwd ...)	 | Gera uma senha criptografada via linha de comando.   | $(openssl passwd -crypt 123)
+| cd /	                 | Entra no diretório raiz (root) do sistema.           | cd /
+| mkdir	                 | Cria um novo diretório (pasta).                      | sudo mkdir /scripts
+| nano	                 | Abre um editor de texto simples dentro do terminal.  | nano criaruser.sh
+| sh ou ./	             | Executa um script de shell.                          | sh criaruser.sh
+
+
+**Explicação dos Comandos Solicitados**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1. **-p $(openssl passwd -crypt Senha123) -p:** </br>
+Este parâmetro do useradd serve para definir a senha (password) do usuário já criptografada.
+
+`$(...)`: Isso é uma substituição de comando. O sistema executa o que está dentro dos parênteses primeiro e joga o resultado no comando principal.
+
+`openssl passwd -crypt Senha123`: O comando useradd não aceita a senha em texto puro por segurança. O openssl pega a palavra "Senha123" e a transforma em um hash (um código embaralhado). Assim, a senha já nasce protegida no arquivo /etc/shadow.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.2. **cd /** </br>
+O comando cd (change directory) leva você para a raiz do sistema Linux. É o nível mais alto da hierarquia de pastas, onde tudo começa.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.3. **mkdir /scripts** </br>
+Cria uma pasta chamada scripts diretamente na raiz. Geralmente usamos o sudo aqui (sudo mkdir /scripts), pois usuários comuns não têm permissão para criar pastas fora de sua /home.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.4. **cd /scripts** </br>
+Entra na pasta que acabamos de criar. Agora, qualquer arquivo criado sem especificar o caminho completo será salvo dentro de /scripts.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.5. **nano criaruser.sh** </br>
+O nano é um editor de texto. Este comando cria (ou abre, se já existir) um arquivo chamado criaruser.sh. O sufixo .sh indica que se trata de um Shell Script, um arquivo que contém uma sequência de comandos para serem executados de uma vez.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.6. **Editando o arquivo criaruser.sh** </br>
+Agora que estamos dentro do arquivo, copie e cole todos este trecho a baixo:
+  ```bash
+#!/bin/bash
+
+echo "Criando usuários do sistema...."
+
+useradd guest10 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest10 -e
+
+useradd guest11 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest11 -e
+
+useradd guest12 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest12 -e
+
+useradd guest13 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest13 -e
+
+echo "Finalizado!!"
+  ```
+Esta é uma modelo para fácil entendimento de como funciona o arquivo, mas imagine que vc precise criar 50 usuários. Temos um jeito melhor e mais elegante para fazer, que no caso é este abaixo:
+
+  ```bash
+#!/bin/bash
+
+echo "Criando usuários do sistema...."
+
+# O laço percorre os números de 10 a 13
+for i in {10..13}
+do
+    nome_user="guest$i"
+    
+    echo "Criando usuário: $nome_user"
+    
+    # Cria o usuário com as configurações da imagem
+    useradd $nome_user -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+    
+    # Força a troca de senha no primeiro login
+    passwd $nome_user -e
+done
+
+echo "Finalizado!!"
+  ```
+
+**Por que usar essa versão?** </br> </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Escalabilidade:** Se você precisar criar do guest10 ao guest50, basta alterar {10..13} para {10..50}. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Menos Erros:** Você não corre o risco de esquecer de alterar o nome do usuário em uma das linhas ao copiar e colar. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Leitura:** O script fica muito mais curto e profissional. </br></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.7. **Executando o arquivo** </br></br> 
+Primeiro precisamos rodar o comando para dar permissão de execução ao arquivo
+  ```bash
+chmod +x criar_user.sh
+  ```
+Agora vamos executar o arquivo com o comando:
+  ```bash
+./criar_user.sh
+  ```
+Confirme se os usuários foram realmente criados com o comando:
+  ```bash
+cat /etc/passwd
+  ```
+
+## 🔐 Criando grupos e atribuindo usuários a eles.
+
+Abaixo está a tabela com os comandos para gerenciar grupos e adicionar usuários a eles.
+
+| Comando | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| groupadd | Cria um novo grupo no sistema. | sudo groupadd nome_do_grupo |
+| groupdel | Remove um grupo existente. | sudo groupdel nome_do_grupo |
+| groups | Lista os grupos aos quais um usuário pertence. | groups usuario |
+| usermod -aG | Adiciona um usuário a um grupo (sem removê-lo dos atuais). | sudo usermod -aG grupo usuario |
+| gpasswd -a | Outra forma de adicionar um usuário a um grupo. | sudo gpasswd -a usuario grupo |
+| gpasswd -d | Remove um usuário de um grupo específico. | sudo gpasswd -d usuario grupo |
+| cat /etc/group | Exibe o arquivo com a lista de todos os grupos. | cat /etc/group |
+
+Explicação Importante:
+
+  - `usermod -aG`: O `-a` (append) é fundamental. Se você esquecer o `-a` e usar apenas `-G`, o sistema removerá o usuário de todos os outros grupos (como o grupo sudo) e o deixará apenas no novo grupo.
+  - `/etc/group`: É o arquivo de configuração que armazena as informações dos grupos, similar ao /etc/passwd para usuários.
+
+</br></br>
+
+Exemplo Prático: Cenário Corporativo </br>
+**1. Criando os Grupos** </br>
+Primeiro, criamos os grupos que representarão os departamentos.
+  ```bash
+sudo groupadd grp_ti
+sudo groupadd grp_rh
+  ```
+**2. Criando os Usuários e Atribuindo Grupos** </br>
+Neste exemplo, vamos criar os usuários já definindo seus nomes, pastas e o grupo principal.
+
+Para o departamento de TI:
+  ```bash
+sudo useradd carlos -m -c "Carlos Silva" -s /bin/bash -g grp_ti
+sudo useradd ana -m -c "Ana Souza" -s /bin/bash -g grp_ti
+  ```
+
+Para o departamento de RH:
+  ```bash
+sudo useradd beto -m -c "Beto Oliveira" -s /bin/bash -g grp_rh
+  ```
+
+**3. Adicionando um usuário a um grupo secundário** </br>
+Se a Ana (da TI) também precisar ajudar no RH, adicionamos ela como membro extra sem tirá-la da TI:
+  ```bash
+sudo usermod -aG grp_rh ana
+  ```
+
+
+## 🔐 Alterando as permissões de um diretório - arquivo
+
+> Para gerenciar quem pode ler, escrever ou executar arquivos e pastas no Unix, utilizamos os comandos de permissões e propriedade. No Linux, as permissões são divididas em Dono (u), Grupo (g) e Outros (o).
+
+| Comando | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| chmod	    | Altera as permissões de acesso (leitura, escrita, execução).  | chmod 755 script.sh
+| chown	    | Altera o dono (owner) do arquivo ou diretório.	              | sudo chown usuario arquivo.txt
+| chgrp	    | Altera o grupo proprietário do arquivo ou diretório.	        | sudo chgrp grp_ti pasta_ti
+| chmod +x	| Torna um arquivo executável (atalho rápido).	                | chmod +x criaruser.sh
+| chown -R	| Altera o dono de uma pasta e de tudo o que está dentro dela.  | sudo chown -R usuario:grupo /pasta
+
+
+**Entendendo a Lógica de Permissões** </br>
+As permissões podem ser definidas por números (Modo Octal) ou letras (Modo Simbólico).
+
+1. **Modo Octal (Números)** </br>
+Cada tipo de permissão tem um valor:
+
+4 = Leitura (read) </br>
+2 = Escrita (write) </br>
+1 = Execução (execute) </br>
+0 = Nenhuma permissão </br>
+
+**Exemplo chmod 755:** </br>
+
+7 (4+2+1): Dono pode tudo. </br>
+5 (4+0+1): Grupo pode ler e executar. </br>
+5 (4+0+1): Outros podem ler e executar. </br>
+
+2. **Modo Simbólico (Letras)** </br>
+`u` (user/dono), `g` (group), `o` (others), `a` (all/todos). </br>
+`+` (adiciona), `-` (remove), `=` (define exatamente). </br>
+
+**Exemplos:** </br>
+`chmod g+w` arquivo: Adiciona permissão de escrita para o grupo. </br>
+`chmod o-rwx` arquivo: Remove todas as permissões dos outros. </br>
+
+**Exemplo Combinado de Administração:** </br>
+Se você criou a pasta /scripts e quer que o usuário `Carlos` seja o dono e o grupo `grp_ti` tenha acesso:
+  ```bash
+sudo chown carlos:grp_ti /scripts
+sudo chmod 770 /scripts
+  ```
+Neste caso, `Carlos` e o grupo TI podem fazer tudo, e o resto do mundo não pode nem ver o que tem dentro.
+
+## 🔗 **Como Contribuir / Contato**</br></br>
+Este projeto foi desenvolvido como parte de um desafio prático de segurança cibernética. Sinta-se à vontade para explorá-lo, cloná-lo e adaptá-lo!
+
+| Botão | Ação |
+| :--- | :--- |
+| ⭐ Dar Estrela | Se gostou do projeto, considere dar uma estrela no GitHub. |
+| 🤝 Conecte-se | **<img src="https://img.shields.io/badge/-LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white" alt="Link para o LinkedIn" align="center"> <a href="https://www.linkedin.com/in/leandro-antonio-fortunato/" target="_blank">  Visite meu linkedin</a>**  |
+| 📧 Fale Comigo | 📧 [E-mail para contato](mailto:leandroantonio.fortunato@hotmail.com) |
+
