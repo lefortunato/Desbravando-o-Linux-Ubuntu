@@ -20,7 +20,6 @@
 * [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-criando-uma-m%C3%A1quina-virtual-com-linux-ubuntu-na-aws) 
 * [🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-do-virtualbox)
 * [🛠️ Simulando acesso remoto do windows na máquina virtual da AWS](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
-* [🛠️ Trabalhando com arquivos](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
 * [🛠️ Trabalhando com arquivos.](#%EF%B8%8F-trabalhando-com-arquivos)
 * [🐧 Comandos Essenciais do Terminal Linux](#-comandos-essenciais-do-terminal-linux)
 * [🐧 Comandos Linux: Variações e Atalhos Úteis](#-comandos-linux-varia%C3%A7%C3%B5es-e-atalhos-%C3%BAteis)
