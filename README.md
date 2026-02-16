@@ -511,6 +511,88 @@ As permissões são divididas em Dono, Grupo e Outros. Cada ação tem um valor:
 | watch	    | Executa um comando repetidamente a cada X segundos   | watch -n 1 date
 | du -sh *	| Mostra o tamanho de cada pasta no diretório atual	   | Ótimo para limpar disco cheio
 
+## 🔐 Liberando acesso remoto do usuário root
+> Agora vou realizar o procedimento para permitir que o usuário `ROOT` possa acessar remotamente a imagem do SO.
+
+1) No prompt de comando, vamos acessar o arquivo onde ficam as configurações de usuário e é lá que precisamos habilitar o usuáro ROOT para fazer acesso remoto. Digite o comando:
+  ```bash
+sudo nano /etc/ssh/sshd_config
+  ```
+ Neste caso, usaremos o editor chamado `NANO`, que já vem instalado no Ubuntu. O comando `cat`, abre um arquivo texto e permite a visualização de seu conteúdo, porém não permite a edição. </br>
+ E para realizarmos a edição no arquivo, precisamos digidar o `sudo` antes, caso contrário o arquivo não permitirá ser editado.
+
+2) Localize a linha com este trecho `#PermitRootLogin prohibit-password`.  Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Liberando acesso remoto do usuário Root]
+    </summary>
+    <img src="images/img30.png" alt="Liberando acesso remoto do usuário Root" width="600">
+  </details>
+</div>
+
+3) Altera o conteúdo da linha para `PermitRootLogin yes`. Agora salve com o comando `ctrl + o (Write out)`. Confirme o nome do arquivo com `Enter` e `ctrl + x` para sair do arquivo. Observe a imagem abaixo.
+
+<div align="right">
+  <details>
+    <summary font-weight: bold;">
+      [Liberando acesso remoto do usuário Root]
+    </summary>
+    <img src="images/img31.png" alt="Liberando acesso remoto do usuário Root" width="600">
+  </details>
+</div>
+
+4) Agora precisaremos reiniciar o serviço `ssh`, para que as alterações replitam. Digite o comando abaixo:
+  ```bash
+sudo systemctl restart sshd
+  ```
+5) Abra uma nova sessão do putty e agora digite o usuário `root` e a senha. A partir de agora, estaremos com o usuário `root` fazendo acesso remoto. 
+
+## 👤 Trabalhando com Usuários
+> Agora apresentar comandos para manipular usuários.
+
+1. **Criando e excluindo usuários**
+
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| useradd        | Cria um novo usuário no sistema.                                 | sudo useradd -m novo_usuario |
+| passwd         | Altera a senha de um usuário.                                    | sudo passwd novo_usuario |
+| usermod        | Modifica as propriedades de um usuário.                          | sudo usermod -aG sudo usuario |
+| userdel        | Remove um usuário do sistema.                                    | sudo userdel -r usuario |
+| id             | Exibe UID, GID e grupos do usuário.                              | id usuario |
+| whoami         | Mostra o nome do usuário logado.                                 | whoami |
+| /home          | Diretório raiz onde ficam as pastas pessoais de cada usuário.    | ls /home |
+| userdel	       |  Remove um usuário do sistema.	                                  | sudo userdel joao
+| userdel --help | Exibe o menu de ajuda do comando userdel.	                      | userdel --help
+| userdel -r	   | Remove o usuário e deleta seu diretório home e arquivos.	        | sudo userdel -r joao
+| userdel -rf	   | Remove o usuário e diretório de forma forçada (mesmo se logado). |	sudo userdel -rf joao
+| useradd --help | Exibe o menu de ajuda do comando useradd.	                      | useradd --help
+| su	           | Alterna para outro usuário (Switch User).	                      | su joao
+
+
+**Exemplo prático:** </br></br>
+O comando completo useradd `joao -m -c "João da Silva" -s /bin/bash` faz o seguinte: </br>
+
+`useradd joao`: Cria o usuário com o nome de login "joao". </br>
+`-m`: Cria automaticamente o diretório pessoal (home) do usuário em /home/joao. </br>
+`-c "João da Silva"`: Adiciona um comentário ao cadastro, geralmente usado para o nome completo do usuário. </br>
+`-s /bin/bash`: Define qual interpretador de comandos (shell) o usuário usará ao logar, neste caso, o Bash. </br>
+
+Os comandos seguintes: </br>
+
+`passwd joao`: Define uma senha para a conta recém-criada (o sistema pedirá para digitar e confirmar a senha).</br>
+`su joao`: Abre uma sessão no terminal como o usuário "joao" (solicitará a senha dele).</br></br>
+
+> Nota sobre a pasta /home:
+No Unix/Linux, o diretório /home é o local centralizado onde o sistema armazena os dados, configurações e documentos de cada usuário comum (ex: /home/joao, /home/maria). É o espaço privado de cada conta.
+
+
+2. **Editando informações do usuários**
+
+
+
+
 ## 🔗 **Como Contribuir / Contato**</br></br>
 Este projeto foi desenvolvido como parte de um desafio prático de segurança cibernética. Sinta-se à vontade para explorá-lo, cloná-lo e adaptá-lo!
 
