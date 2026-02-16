@@ -626,6 +626,47 @@ Após rodar seus comandos, você pode filtrar o arquivo passwd para ver apenas o
   ```bash
 grep "guest" /etc/passwd
   ```
+</br></br>
+
+3. **Shell Script - Criando usuários em lote**
+> Neste tópico vamos abordar o comando de criação de usuário que é um pouco mais avançado, pois ele já automatiza a definição da senha no momento da criação, o que é muito comum em automação e scripts. </br>
+> Também vamos criar um script para criar usuários em lote.
+
+**Comandos de Automação e Manipulação de Arquivos**
+
+| Comando/Caminho | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| $(openssl passwd ...)	 | Gera uma senha criptografada via linha de comando.   | $(openssl passwd -crypt 123)
+| cd /	                 | Entra no diretório raiz (root) do sistema.           | cd /
+| mkdir	                 | Cria um novo diretório (pasta).                      | sudo mkdir /scripts
+| nano	                 | Abre um editor de texto simples dentro do terminal.  | nano criaruser.sh
+| sh ou ./	             | Executa um script de shell.                          | sh criaruser.sh
+
+
+**Explicação dos Comandos Solicitados**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.1. **-p $(openssl passwd -crypt Senha123) -p:** </br>
+Este parâmetro do useradd serve para definir a senha (password) do usuário já criptografada.
+
+`$(...)`: Isso é uma substituição de comando. O sistema executa o que está dentro dos parênteses primeiro e joga o resultado no comando principal.
+
+`openssl passwd -crypt Senha123`: O comando useradd não aceita a senha em texto puro por segurança. O openssl pega a palavra "Senha123" e a transforma em um hash (um código embaralhado). Assim, a senha já nasce protegida no arquivo /etc/shadow.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.2. **cd /** </br>
+O comando cd (change directory) leva você para a raiz do sistema Linux. É o nível mais alto da hierarquia de pastas, onde tudo começa.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.3. **mkdir /scripts** </br>
+Cria uma pasta chamada scripts diretamente na raiz. Geralmente usamos o sudo aqui (sudo mkdir /scripts), pois usuários comuns não têm permissão para criar pastas fora de sua /home.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.4. **cd /scripts** </br>
+Entra na pasta que acabamos de criar. Agora, qualquer arquivo criado sem especificar o caminho completo será salvo dentro de /scripts.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.5. **nano criaruser.sh** </br>
+O nano é um editor de texto. Este comando cria (ou abre, se já existir) um arquivo chamado criaruser.sh. O sufixo .sh indica que se trata de um Shell Script, um arquivo que contém uma sequência de comandos para serem executados de uma vez.
+
+
+
+
 
 
 ## 🔗 **Como Contribuir / Contato**</br></br>
