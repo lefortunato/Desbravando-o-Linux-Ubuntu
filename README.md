@@ -20,7 +20,16 @@
 * [🛠️ Criando uma máquina virtual com Linux Ubuntu na AWS](#%EF%B8%8F-criando-uma-m%C3%A1quina-virtual-com-linux-ubuntu-na-aws) 
 * [🛠️ Simulando acesso remoto do windows na máquina virtual do VirtualBox](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-do-virtualbox)
 * [🛠️ Simulando acesso remoto do windows na máquina virtual da AWS](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
-* [🛠️ Trabalhando com arquivos](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws) 
+* [🛠️ Trabalhando com arquivos](#%EF%B8%8F-simulando-acesso-remoto-do-windows-na-m%C3%A1quina-virtual-da-aws)
+* [🛠️ Trabalhando com arquivos.](#%EF%B8%8F-trabalhando-com-arquivos)
+* [🐧 Comandos Essenciais do Terminal Linux](#-comandos-essenciais-do-terminal-linux)
+* [🐧 Comandos Linux: Variações e Atalhos Úteis](#-comandos-linux-varia%C3%A7%C3%B5es-e-atalhos-%C3%BAteis)
+* [🚀 Atalhos de Produtividade (Bônus)](#-atalhos-de-produtividade-b%C3%B4nus)
+* [🔐 Gerenciamento de Permissões (chmod)](#-gerenciamento-de-permiss%C3%B5es-chmod)
+* [⚡ Dicas de Ouro (Shortcuts & Tricks)](#-dicas-de-ouro-shortcuts--tricks)
+* [🔐 Liberando acesso remoto do usuário root](#-liberando-acesso-remoto-do-usu%C3%A1rio-root)
+* [👤 Trabalhando com Usuários](#-trabalhando-com-usu%C3%A1rios)
+* [🔐 Criando grupos e atribuindo usuários a eles.](#-criando-grupos-e-atribuindo-usu%C3%A1rios-a-eles)
   
 * [🔗 Como Contribuir / Contato](#-como-contribuir--contato)
 
