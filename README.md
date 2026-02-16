@@ -777,10 +777,51 @@ sudo usermod -aG grp_rh ana
   ```
 
 
+## 🔐 Alterando as permissões de um diretório - arquivo
+
+> Para gerenciar quem pode ler, escrever ou executar arquivos e pastas no Unix, utilizamos os comandos de permissões e propriedade. No Linux, as permissões são divididas em Dono (u), Grupo (g) e Outros (o).
+
+| Comando | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| chmod	    | Altera as permissões de acesso (leitura, escrita, execução).  | chmod 755 script.sh
+| chown	    | Altera o dono (owner) do arquivo ou diretório.	              | sudo chown usuario arquivo.txt
+| chgrp	    | Altera o grupo proprietário do arquivo ou diretório.	        | sudo chgrp grp_ti pasta_ti
+| chmod +x	| Torna um arquivo executável (atalho rápido).	                | chmod +x criaruser.sh
+| chown -R	| Altera o dono de uma pasta e de tudo o que está dentro dela.  | sudo chown -R usuario:grupo /pasta
 
 
+**Entendendo a Lógica de Permissões** </br>
+As permissões podem ser definidas por números (Modo Octal) ou letras (Modo Simbólico).
 
+1. **Modo Octal (Números)** </br>
+Cada tipo de permissão tem um valor:
 
+4 = Leitura (read) </br>
+2 = Escrita (write) </br>
+1 = Execução (execute) </br>
+0 = Nenhuma permissão </br>
+
+**Exemplo chmod 755:** </br>
+
+7 (4+2+1): Dono pode tudo. </br>
+5 (4+0+1): Grupo pode ler e executar. </br>
+5 (4+0+1): Outros podem ler e executar. </br>
+
+2. **Modo Simbólico (Letras)** </br>
+`u` (user/dono), `g` (group), `o` (others), `a` (all/todos). </br>
+`+` (adiciona), `-` (remove), `=` (define exatamente). </br>
+
+**Exemplos:** </br>
+`chmod g+w` arquivo: Adiciona permissão de escrita para o grupo. </br>
+`chmod o-rwx` arquivo: Remove todas as permissões dos outros. </br>
+
+**Exemplo Combinado de Administração:** </br>
+Se você criou a pasta /scripts e quer que o usuário `Carlos` seja o dono e o grupo `grp_ti` tenha acesso:
+  ```bash
+sudo chown carlos:grp_ti /scripts
+sudo chmod 770 /scripts
+  ```
+Neste caso, `Carlos` e o grupo TI podem fazer tudo, e o resto do mundo não pode nem ver o que tem dentro.
 
 ## 🔗 **Como Contribuir / Contato**</br></br>
 Este projeto foi desenvolvido como parte de um desafio prático de segurança cibernética. Sinta-se à vontade para explorá-lo, cloná-lo e adaptá-lo!
