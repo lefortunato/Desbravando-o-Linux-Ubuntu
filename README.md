@@ -664,6 +664,119 @@ Entra na pasta que acabamos de criar. Agora, qualquer arquivo criado sem especif
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.5. **nano criaruser.sh** </br>
 O nano é um editor de texto. Este comando cria (ou abre, se já existir) um arquivo chamado criaruser.sh. O sufixo .sh indica que se trata de um Shell Script, um arquivo que contém uma sequência de comandos para serem executados de uma vez.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.6. **Editando o arquivo criaruser.sh** </br>
+Agora que estamos dentro do arquivo, copie e cole todos este trecho a baixo:
+  ```bash
+#!/bin/bash
+
+echo "Criando usuários do sistema...."
+
+useradd guest10 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest10 -e
+
+useradd guest11 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest11 -e
+
+useradd guest12 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest12 -e
+
+useradd guest13 -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+passwd guest13 -e
+
+echo "Finalizado!!"
+  ```
+Esta é uma modelo para fácil entendimento de como funciona o arquivo, mas imagine que vc precise criar 50 usuários. Temos um jeito melhor e mais elegante para fazer, que no caso é este abaixo:
+
+  ```bash
+#!/bin/bash
+
+echo "Criando usuários do sistema...."
+
+# O laço percorre os números de 10 a 13
+for i in {10..13}
+do
+    nome_user="guest$i"
+    
+    echo "Criando usuário: $nome_user"
+    
+    # Cria o usuário com as configurações da imagem
+    useradd $nome_user -c "Usuário convidado" -s /bin/bash -m -p $(openssl passwd -crypt Senha123)
+    
+    # Força a troca de senha no primeiro login
+    passwd $nome_user -e
+done
+
+echo "Finalizado!!"
+  ```
+
+**Por que usar essa versão?** </br> </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Escalabilidade:** Se você precisar criar do guest10 ao guest50, basta alterar {10..13} para {10..50}. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Menos Erros:** Você não corre o risco de esquecer de alterar o nome do usuário em uma das linhas ao copiar e colar. </br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **Leitura:** O script fica muito mais curto e profissional. </br></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3.7. **Executando o arquivo** </br></br> 
+Primeiro precisamos rodar o comando para dar permissão de execução ao arquivo
+  ```bash
+chmod +x criar_user.sh
+  ```
+Agora vamos executar o arquivo com o comando:
+  ```bash
+./criar_user.sh
+  ```
+Confirme se os usuários foram realmente criados com o comando:
+  ```bash
+cat /etc/passwd
+  ```
+
+## 🔐 Criando grupos e atribuindo usuários a eles.
+
+Abaixo está a tabela com os comandos para gerenciar grupos e adicionar usuários a eles.
+
+| Comando | Descrição | Exemplo de Uso |
+| :--- | :--- | :--- |
+| groupadd | Cria um novo grupo no sistema. | sudo groupadd nome_do_grupo |
+| groupdel | Remove um grupo existente. | sudo groupdel nome_do_grupo |
+| groups | Lista os grupos aos quais um usuário pertence. | groups usuario |
+| usermod -aG | Adiciona um usuário a um grupo (sem removê-lo dos atuais). | sudo usermod -aG grupo usuario |
+| gpasswd -a | Outra forma de adicionar um usuário a um grupo. | sudo gpasswd -a usuario grupo |
+| gpasswd -d | Remove um usuário de um grupo específico. | sudo gpasswd -d usuario grupo |
+| cat /etc/group | Exibe o arquivo com a lista de todos os grupos. | cat /etc/group |
+
+Explicação Importante:
+
+  - `usermod -aG`: O `-a` (append) é fundamental. Se você esquecer o `-a` e usar apenas `-G`, o sistema removerá o usuário de todos os outros grupos (como o grupo sudo) e o deixará apenas no novo grupo.
+  - `/etc/group`: É o arquivo de configuração que armazena as informações dos grupos, similar ao /etc/passwd para usuários.
+
+</br></br>
+
+Exemplo Prático: Cenário Corporativo </br>
+**1. Criando os Grupos** </br>
+Primeiro, criamos os grupos que representarão os departamentos.
+  ```bash
+sudo groupadd grp_ti
+sudo groupadd grp_rh
+  ```
+**2. Criando os Usuários e Atribuindo Grupos** </br>
+Neste exemplo, vamos criar os usuários já definindo seus nomes, pastas e o grupo principal.
+
+Para o departamento de TI:
+  ```bash
+sudo useradd carlos -m -c "Carlos Silva" -s /bin/bash -g grp_ti
+sudo useradd ana -m -c "Ana Souza" -s /bin/bash -g grp_ti
+  ```
+
+Para o departamento de RH:
+  ```bash
+sudo useradd beto -m -c "Beto Oliveira" -s /bin/bash -g grp_rh
+  ```
+
+**3. Adicionando um usuário a um grupo secundário** </br>
+Se a Ana (da TI) também precisar ajudar no RH, adicionamos ela como membro extra sem tirá-la da TI:
+  ```bash
+sudo usermod -aG grp_rh ana
+  ```
+
+
 
 
 
